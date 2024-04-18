@@ -1,9 +1,10 @@
-def surfactants_filter(feature, min_value, df_path:str, max_value=None):
+def surfactants_filter(feature, df_path, min_value, max_value=None):
     """
     Filter surfactants based on the specified feature and range.
 
     Parameters:
         feature (str): The feature (column) to filter by.
+        df_path (str): The file to be used to extract information.
         min_value (float): The minimum value of the range.
         max_value (float or None): The maximum value of the range. Default is None.
 
