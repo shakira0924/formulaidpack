@@ -9,7 +9,7 @@ setup(
     license="MIT",
     long_description=open("README.md").read(),
     packages=find_packages(where="formulaidpack"),
-    package_dir={"": "Functionalities"},
-    package_data={"Functionalities": ["*.csv"]},
+    package_dir={"": "FORM"},
+    package_data={"FORM": ["*.csv"]},
     scripts=[],
 )
