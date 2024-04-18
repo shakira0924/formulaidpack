@@ -1,6 +1,8 @@
+import pandas as pd
+
 def surfactants_filter(feature, df_path, min_value, max_value=None):
     """
-    Filter surfactants based on the specified feature and range.
+    Filter surfactants based on the specified feature and range, ignoring '-' values.
 
     Parameters:
         feature (str): The feature (column) to filter by.
@@ -11,8 +13,14 @@ def surfactants_filter(feature, df_path, min_value, max_value=None):
     Returns:
         list: A list of surfactant names that meet the criteria.
     """
-    surfactants_df = pd.read(df_path)
+    surfactants_df = pd.read_csv(df_path)
+    
     try:
+        # Exclude rows with '-' values in the specified feature column
+        surfactants_df = surfactants_df[surfactants_df[feature] != '-']
+        # Convert the feature column to numeric type
+        surfactants_df[feature] = pd.to_numeric(surfactants_df[feature], errors='coerce')
+        
         if max_value is not None:
             # Filter surfactants based on the specified feature and range
             surfactants = surfactants_df[
