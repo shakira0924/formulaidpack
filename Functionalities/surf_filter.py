@@ -1,4 +1,4 @@
-def surfactants_filter(feature, min_value, max_value=None):
+def surfactants_filter(feature, min_value, df_path:str, max_value=None):
     """
     Filter surfactants based on the specified feature and range.
 
@@ -10,6 +10,7 @@ def surfactants_filter(feature, min_value, max_value=None):
     Returns:
         list: A list of surfactant names that meet the criteria.
     """
+    surfactants_df = pd.read(df_path)
     try:
         if max_value is not None:
             # Filter surfactants based on the specified feature and range

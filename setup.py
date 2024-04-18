@@ -5,10 +5,10 @@ setup(name='formulaid',
       description='A package that provides a list of surfactant choices based on the input characteristics provided by the user.',
       author='Shakira Martínez',
       author_email='shakiram@andrew.cmu.edu',
-      license='MIT'
+      license='MIT',
       long_description=open('README.md').read(),
-      packages=find_packages(where="FormulAid"),
-      package_dir={"": "FormulAid"}
-      package_data={"Functionalities": ["*.csv"]}
+      packages=find_packages(where="formulaidpack"),
+      package_dir={"": "Functionalities"},
+      package_data={"Functionalities": ["*.csv"]},
       scripts=[],
 )

@@ -3,3 +3,4 @@
 **/*.check-point
 build
 **/*.egg-info
+**/*__pycache__
