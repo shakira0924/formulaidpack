@@ -1,4 +1,4 @@
-from test_formulaid import test_HLB_filter
+from FORM import surfactants_filter
 import pandas as pd
 
 def test_HLB_filter():

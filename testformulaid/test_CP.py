@@ -1,6 +1,5 @@
-from test_formulaid import test_cloud_point_filter
+from FORM import surfactants_filter
 import pandas as pd
-
 
 def test_cloud_point_filter():
     # Define test data for Cloud Point feature
@@ -17,11 +16,16 @@ def test_cloud_point_filter():
         }
     )
 
+    # Convert special cases to float('inf')
+    test_data["Cloud Point"] = test_data["Cloud Point"].replace({"Disp": float("inf"), ">100": float("inf")})
+
     # Save test data to a CSV file
     test_data.to_csv("test_cloud_point_data.csv", index=False)
 
     # Test filtering surfactants based on Cloud Point
-    filtered_surfactants = surfactants_filter("Cloud Point", "test_cloud_point_data.csv", 25)
+    filtered_surfactants = surfactants_filter(
+        "Cloud Point", "test_cloud_point_data.csv", 25
+    )
 
     # Check that the correct surfactants are returned
     assert filtered_surfactants == [
