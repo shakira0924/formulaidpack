@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 
 setup(
-    name="formulaid",
+    name="formulaidpack",
     version="0.1.0",
     description="A package that provides a list of surfactant choices based on the input characteristics provided by the user.",
     author="Shakira Martínez",
