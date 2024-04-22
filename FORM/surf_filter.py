@@ -1,6 +1,7 @@
 import pandas as pd
 
-def surfactants_filter(feature, df_path, min_value, max_value = None):
+
+def surfactants_filter(feature, df_path, min_value, max_value=None):
     """
     Filter surfactants based on the specified feature and range, ignoring '-' values.
 
@@ -13,18 +14,23 @@ def surfactants_filter(feature, df_path, min_value, max_value = None):
     Returns:
         list: A list of surfactant names that meet the criteria.
     """
-    
-    surfactants_df = pd.read_csv(df_path) # File uploaded in the FORM module
+
+    surfactants_df = pd.read_csv(df_path)  # File uploaded in the FORM module
 
     try:
         # Exclude rows with '-' values in the specified feature column.
         surfactants_df = surfactants_df[surfactants_df[feature] != "-"]
         # Convert the feature column to numeric type
-        surfactants_df[feature] = pd.to_numeric(surfactants_df[feature], errors = "coerce")
+        surfactants_df[feature] = pd.to_numeric(
+            surfactants_df[feature], errors="coerce"
+        )
 
         if max_value is not None:
             # Filter surfactants based on the specified feature and range.
-            surfactants = surfactants_df[(surfactants_df[feature] >= min_value) & (surfactants_df[feature] <= max_value)]
+            surfactants = surfactants_df[
+                (surfactants_df[feature] >= min_value)
+                & (surfactants_df[feature] <= max_value)
+            ]
         else:
             # Filter surfactants based on the specified feature and minimum value only.
             surfactants = surfactants_df[(surfactants_df[feature] >= min_value)]
@@ -34,7 +40,7 @@ def surfactants_filter(feature, df_path, min_value, max_value = None):
 
         # Extract names of surfactants from the "Product" column.
         surfactant_names = surfactants["Product"].tolist()
-        
+
         return surfactant_names
 
     except KeyError:
