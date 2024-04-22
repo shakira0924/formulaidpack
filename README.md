@@ -11,6 +11,4 @@
 To install `formulaid`, run the following command in your terminal:
 
 ```bash
-git clone https://github.com/shakiram/formulaid.git
-cd formulaid 
-pip install .
+! pip install formulaidpack
